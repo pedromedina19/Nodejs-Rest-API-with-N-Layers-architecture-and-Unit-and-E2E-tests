@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-rest-api-and-unit-and-e2e-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedromedina19/Nodejs-Rest-API-and-Unit-and-E2E-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedromedina19/Nodejs-Rest-API-and-Unit-and-E2E-tests/issues"
+  },
+  "homepage": "https://github.com/pedromedina19/Nodejs-Rest-API-and-Unit-and-E2E-tests#readme"
+}
