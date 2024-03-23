@@ -2,7 +2,7 @@ import {parse} from 'node:url'
 import { DEFAULT_HEADER } from './util/util.js'
 
 const allRoutes = {
-    '/heroes:get': (request, response) => {
+    '/heroes:get': async (request, response) => {
         response.write('GET')
         response.end()
     },
@@ -24,8 +24,19 @@ function handler(request, response){
     } = parse(url, true)
     const key = `${pathname}:${method.toLowerCase()}`
     const chosen = allRoutes[key] || allRoutes.default
-    return chosen(request, response)
-    response.end('Hello World')
+    return Promise.resolve(chosen(request, response))
+    .catch(handlerError(response))
+}
+
+function handlerError(response){
+    return error => {
+        console.log('something bad just happened**', error.stack)
+        response.writeHead(500, DEFAULT_HEADER)
+        response.write(JSON.stringify({
+            error: 'internet server error'
+        }))
+        return response.end()
+    }
 }
 
 export default handler
