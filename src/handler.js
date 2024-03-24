@@ -1,12 +1,14 @@
 import {parse} from 'node:url'
 import { DEFAULT_HEADER } from './util/util.js'
+import { routes } from './routes/heroRoute.js'
+
+const heroRoutes = routes({
+    heroService: {}
+})
 
 const allRoutes = {
-    '/heroes:get': async (request, response) => {
-        response.write('GET')
-        response.end()
-    },
-    //404 routes
+    ...heroRoutes,
+        //404 routes
     default: (request, response) => {
         response.writeHead(404, DEFAULT_HEADER)
         response.write('not found')
