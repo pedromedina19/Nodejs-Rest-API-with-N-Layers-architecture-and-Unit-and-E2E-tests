@@ -1,7 +1,7 @@
 import {parse} from 'node:url'
 import { DEFAULT_HEADER } from './util/util.js'
-import { routes } from './routes/heroRoute.js'
-import { generateInstance } from './factories/heroFactory.js'
+import { routes } from './routes/userRoute.js'
+import { generateInstance } from './factories/userFactory.js'
 import { join, dirname } from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -12,16 +12,16 @@ const currentDir = dirname(
 )
 const filePath = join(currentDir, './../database', 'data.json')
 
-const heroService = generateInstance({
+const userService = generateInstance({
     filePath
 })
 
-const heroRoutes = routes({
-    heroService
+const userRoutes = routes({
+    userService
 })
 
 const allRoutes = {
-    ...heroRoutes,
+    ...userRoutes,
         //404 routes
     default: (request, response) => {
         response.writeHead(404, DEFAULT_HEADER)

@@ -5,27 +5,26 @@ process.on('exit', () => callTracker.verify())
 
 import { 
   routes
-} from './../../../src/routes/heroRoute.js'
+} from './../../../src/routes/userRoute.js'
 import { DEFAULT_HEADER } from '../../../src/util/util.js'
 
-test('Hero routes - endpoints test suite', async (t) => {
-  await t.test('it should call /heroes:get route', async () => {
+test('User routes - endpoints test suite', async (t) => {
+  await t.test('it should call /users:get route', async () => {
     const databaseMock = [{
       "id": "90bf10a3-c9fb-406a-a35a-3e4a8db0fbf8",
       "name": "Batman",
-      "age": 50,
-      "power": "rich"
+      "age": 50
     }]
 
-    const heroServiceStub = {
+    const userServiceStub = {
       find: async () => databaseMock
     }
 
     const endpoints = routes({
-      heroService: heroServiceStub
+      userService: userServiceStub
     })
 
-    const endpoint  = '/heroes:get'
+    const endpoint  = '/users:get'
     const request = {}
     const response = {
       write: callTracker.calls(item => {
@@ -50,5 +49,5 @@ test('Hero routes - endpoints test suite', async (t) => {
     await route(request, response)
 
   })
-  await t.todo('it should call /heroes:post route')
+  await t.todo('it should call /users:post route')
 })

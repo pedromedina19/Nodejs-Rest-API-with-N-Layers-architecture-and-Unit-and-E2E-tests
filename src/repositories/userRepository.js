@@ -3,7 +3,7 @@ import {
     writeFile
 } from 'node:fs/promises'
 
-export default class HeroRepository {
+export default class UserRepository {
     constructor({
         file
     }) {
@@ -31,16 +31,16 @@ export default class HeroRepository {
     }
 }
 
-/* const heroRepository = new HeroRepository({
+/* const userRepository = new UserRepository({
     file: './database/data.json'
 })
 
 console.log(
-    await heroRepository.create({
+    await userRepository.create({
         id: 2,
         name: 'chapolin'
     })
 )
 console.log(
-    await eroRepository.find()
+    await userRepository.find()
 ) */
