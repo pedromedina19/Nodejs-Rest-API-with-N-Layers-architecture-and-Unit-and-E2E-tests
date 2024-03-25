@@ -16,8 +16,10 @@ src -all source code<br>
     - index - server instance<br>
     
 tests -> all automated test suites<br>
-    - integration tests - testing on the user point of view. it's also an E2E test because there's no app consuming it<br>
+    - integration tests 
+    - testing on the user point of view. it's also an E2E test because there's no app consuming it<br>
 
-    - unit tests - all tests that muust run without any external connections such as databases, external APIs and the fileSystem<br>
+    - unit tests 
+    - all tests that muust run without any external connections such as databases, external APIs and the fileSystem<br>
 
 
