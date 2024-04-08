@@ -29,6 +29,19 @@ export default class UserRepository {
 
         return data.id
     }
+
+    async delete(id) {
+        const currentFile = await this.#currentFileContent()
+        const updatedFile = currentFile.filter(user => user.id !== id)
+    
+        await writeFile(
+            this.file,
+            JSON.stringify(updatedFile)
+        )
+    
+        return id
+    }
+    
 }
 
 /* const userRepository = new UserRepository({
