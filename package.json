@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/pedromedina19/Nodejs-Rest-API-and-Unit-and-E2E-tests/issues"
   },
-  "homepage": "https://github.com/pedromedina19/Nodejs-Rest-API-and-Unit-and-E2E-tests#readme"
+  "homepage": "https://github.com/pedromedina19/Nodejs-Rest-API-and-Unit-and-E2E-tests#readme",
+  "dependencies": {
+    "nodemon": "^3.1.0"
+  }
 }

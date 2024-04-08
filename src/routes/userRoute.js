@@ -23,6 +23,16 @@ const routes = ({
         }))
         return response.end()
     },
+    '/users:put': async (request, response) => {
+        const data = await once(request, 'data')
+        const { id, ...userData } = JSON.parse(data)
+        await userService.update(id, userData)
+        response.writeHead(200, DEFAULT_HEADER)
+        response.write(JSON.stringify({
+            success: 'user updated with success',
+        }))
+        return response.end()
+    },    
     '/users:delete': async (request, response) => {
         const data = await once(request, 'data')
         const { id } = JSON.parse(data)
