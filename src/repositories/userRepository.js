@@ -32,7 +32,7 @@ export default class UserRepository {
 
     async update(id, data) {
         const currentFile = await this.#currentFileContent()
-        const updatedFile = currentFile.map(user => user.id === id ? {...user, ...data} : user)
+        const updatedFile = currentFile.map(user => user.id === id ? {...data} : user)
     
         await writeFile(
             this.file,
@@ -69,17 +69,3 @@ export default class UserRepository {
     }
     
 }
-
-/* const userRepository = new UserRepository({
-    file: './database/data.json'
-})
-
-console.log(
-    await userRepository.create({
-        id: 2,
-        name: 'chapolin'
-    })
-)
-console.log(
-    await userRepository.find()
-) */
