@@ -33,6 +33,16 @@ const routes = ({
         }))
         return response.end()
     },    
+    '/users:patch': async (request, response) => {
+        const data = await once(request, 'data')
+        const { id, ...userData } = JSON.parse(data)
+        await userService.patch(id, userData)
+        response.writeHead(200, DEFAULT_HEADER)
+        response.write(JSON.stringify({
+            success: 'user partially updated with success',
+        }))
+        return response.end()
+    },    
     '/users:delete': async (request, response) => {
         const data = await once(request, 'data')
         const { id } = JSON.parse(data)
