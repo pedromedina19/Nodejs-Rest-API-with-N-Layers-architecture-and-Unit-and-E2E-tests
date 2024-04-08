@@ -104,7 +104,6 @@ test('User Integration Test Suite', async(t) => {
         )
     })
 
-
-
+   
     await promisify(server.close.bind(server))()
 })
