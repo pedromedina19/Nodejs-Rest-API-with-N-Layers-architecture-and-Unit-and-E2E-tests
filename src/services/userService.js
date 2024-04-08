@@ -12,6 +12,10 @@ export default class userService {
         return this.userRepository.create(data)
     }
 
+    update(id, data){
+        return this.userRepository.update(id, data)
+    }    
+
     delete(id){
         return this.userRepository.delete(id)
     }
