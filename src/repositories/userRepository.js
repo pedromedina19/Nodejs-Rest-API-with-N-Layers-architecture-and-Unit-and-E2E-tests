@@ -41,6 +41,19 @@ export default class UserRepository {
     
         return id
     }
+
+    async patch(id, data) {
+        const currentFile = await this.#currentFileContent()
+        const updatedFile = currentFile.map(user => user.id === id ? {...user, ...data} : user)
+    
+        await writeFile(
+            this.file,
+            JSON.stringify(updatedFile)
+        )
+    
+        return id
+    }
+    
     
 
     async delete(id) {
